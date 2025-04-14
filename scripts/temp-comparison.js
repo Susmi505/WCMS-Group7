@@ -69,7 +69,7 @@ function createTemperatureComparisonChart(selector, data, units) {
         ])
         .range([innerHeight, 0]);
     
-    // Create axes
+    // Create axis
     const xAxis = d3.axisBottom(xScale);
     const yAxis = d3.axisLeft(yScale);
     
@@ -133,7 +133,7 @@ function createTemperatureComparisonChart(selector, data, units) {
             d3.select(this).attr('fill', '#1e88e5');
         });
     
-    // Add "feels like" temperature bars
+    // Add "feels like" temperature bars in graph
     cityGroups.append('rect')
         .attr('x', xScale.bandwidth() / 2)
         .attr('y', d => yScale(d.feels_like))
@@ -162,13 +162,6 @@ function createTemperatureComparisonChart(selector, data, units) {
             d3.select(this).attr('fill', '#ff9800');
         });
     
-    // Add weather icons
-    cityGroups.append('image')
-        .attr('x', xScale.bandwidth() / 2 - 20)
-        .attr('y', d => yScale(d.temp) - 40)
-        .attr('width', 40)
-        .attr('height', 40)
-        .attr('xlink:href', d => getWeatherIconUrl(d.weatherIcon));
     
     // Add legend
     const legend = svg.append('g')
