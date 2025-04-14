@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Visualization Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Weather Visualization Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="#" class="active" data-page="temp-comparison">Temperature Comparison</a></li>
+                <li><a href="#" data-page="weather-dist">Weather Distribution</a></li>
+                <li><a href="#" data-page="temp-timeline">Temperature Timeline</a></li>
+                <li><a href="#" data-page="humidity-temp">Humidity vs Temperature</a></li>
+                <li><a href="#" data-page="wind-direction">Wind Direction</a></li>
+                <li><a href="#" data-page="weather-map">Weather Map</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- City Selection and Controls -->
+        <div class="controls">
+            <div class="city-selector">
+                <h3>Select Cities</h3>
+                <div class="city-inputs">
+                    <div class="city-input">
+                        <input type="text" id="city1" placeholder="Enter city" value="Toronto">
+                    </div>
+                    <div class="city-input">
+                        <input type="text" id="city2" placeholder="Enter city" value="New York">
+                    </div>
+                    <div class="city-input">
+                        <input type="text" id="city3" placeholder="Enter city" value="London">
+                    </div>
+                    <div class="city-input">
+                        <input type="text" id="city4" placeholder="Enter city" value="Tokyo">
+                    </div>
+                    <div class="city-input">
+                        <input type="text" id="city5" placeholder="Enter city" value="Sydney">
+                    </div>
+                </div>
+                <button id="update-data">Update Data</button>
+            </div>
+            <div class="units-selector">
+                <label>
+                    <input type="radio" name="units" value="metric" checked> Celsius
+                </label>
+                <label>
+                    <input type="radio" name="units" value="imperial"> Fahrenheit
+                </label>
+            </div>
+        </div>
+
+        <!-- Visualization Containers -->
+        <div id="temp-comparison" class="visualization active">
+            <h2>Temperature Comparison(Bar Chart)</h2>
+            <div class="chart-container"></div>
+            <div class="chart-description">
+                <p>This bar chart compares current temperatures across selected cities.</p>
+            </div>
+        </div>
+
+        <div id="weather-dist" class="visualization">
+            <h2>Weather Distribution(Pie chart)</h2>
+            <div class="chart-container"></div>
+            <div class="chart-description">
+                <p>This pie chart shows the distribution of weather conditions across selected cities.</p>
+            </div>
+        </div>
+
+        <div id="temp-timeline" class="visualization">
+            <h2>Temperature Timeline (5-day Forecast)(line chart)</h2>
+            <div class="chart-container"></div>
+            <div class="chart-description">
+                <p>This line chart shows temperature changes over the next 5 days for selected cities.</p>
+            </div>
+        </div>
+
+        <div id="humidity-temp" class="visualization">
+            <h2>Humidity vs Temperature(scatter plot)</h2>
+            <div class="chart-container"></div>
+            <div class="chart-description">
+                <p>This scatter plot explores the correlation between humidity and temperature.</p>
+            </div>
+        </div>
+
+        <div id="wind-direction" class="visualization">
+            <h2>Wind Direction and Speed(radial diagram)</h2>
+            <div class="chart-container"></div>
+            <div class="chart-description">
+                <p>This radial diagram shows wind direction and speed for selected cities.</p>
+            </div>
+        </div>
+
+        <div id="weather-map" class="visualization">
+            <h2>Weather Map</h2>
+            <div class="chart-container"></div>
+            <div class="chart-description">
+                <p>This map shows weather data for selected cities geographically.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Data Visualization Project - Weather Dashboard using D3.js</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/api-service.js"></script>
+    <script src="scripts/common.js"></script>
+    <script src="scripts/temp-comparison.js"></script>
+    <script src="scripts/weather-dist.js"></script>
+    <script src="scripts/temp-timeline.js"></script>
+    <script src="scripts/humidity-temp.js"></script>
+    <script src="scripts/wind-direction.js"></script>
+    <script src="scripts/weather-map.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+</html>
